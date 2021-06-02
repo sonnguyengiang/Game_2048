@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="gamee/game.js"></script>
+    <link rel="stylesheet" href="gamee/style.css">
+    <script src="gamee/huongdan.js"></script>
+</head>
+<body>
+
+<center>
+<p style="font-size: 4vmin; border: 3px"><strong>2048</strong></p>
+<p style="cursor: pointer; font-size: 3vmin; background-color: #ffc1a9" onclick="start()">  new game</p>
+<h2>score: <div style="display: inline" id="score"></div></h2>
+<div id="canvas"></div> <br><br>
+    <p style="cursor: pointer" onclick="huongdan()"><strong>Hướng dẫn:</strong></p><br>
+    <div id="show"></div>
+    <div id="show1"></div>
+</center>
+<audio controls autoplay>
+    <source src="audioo/music1.mp3" type="audio/mpeg">
+</audio>
+<script>
+    start();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+p {
+    display: inline-block;
+    font-family: Times New Roman;
+}
+body {
+    background-color: #f5ffdd;
+
+}
+table {
+    font-size: 25px;
+    font-family: Impact;
+    border: black;
+}
