@@ -17,20 +17,64 @@ function start() {
     }
     broad += '</table>';
     document.getElementById("canvas").innerHTML = broad;
-// lấy vị trí từ hàm getIp()
-    let id1 = getId();
-     let id2 = getId();
+
     //tạo id ngẫu nhiên 00-33(i cột; j dòng)
     function getId() {
         let i = Math.floor(Math.random()*(3)+0);
         let j = Math.floor(Math.random()*(3)+0);
         return i+""+j;
     }
-
+    function getId2() {
+        let i = Math.floor(Math.random()*(4)+0);
+        let j = Math.floor(Math.random()*(4)+0);
+        return i+""+j;
+    }
+    // lấy vị trí từ hàm getIp()
+    let id1 = getId();
+    let id2 = getId2();
     // in 2 số đầu tiên ngẫu nhiên
     document.getElementById(id1).innerHTML="2";
     document.getElementById(id2).innerHTML="2";
     //điểm số
+    function update() {
+        //them so ngau nhien
+        let ids = [];
+        for(let i = min;i<=max;i++) {
+            for (let j = min;j<=max;j++) {
+                let id = i+""+j; //id 0 0 ->3 3
+                if (document.getElementById(id).innerHTML =="") { //nếu tại vị trí là rỗng
+                    ids.push(id); //nhưng id hiện rỗng lên mảng ids
+                }
+            }
+        }
+        let id = ids[Math.floor(Math.random()*ids.length)];// vị trí xuất hiện tại nhwungx vị trí rỗng
+        if (Math.random()<0.8) { // tạo số ngẫu nhiên 1-4
+            document.getElementById(id).innerHTML = "2";
+        } else {
+            document.getElementById(id).innerHTML = "4";
+        }
+        let id2 = ids[Math.floor(Math.random()*ids.length)];// vị trí xuất hiện tại nhwungx vị trí rỗng
+        if (Math.random()<0.8) { // tạo số ngẫu nhiên 1-4
+            document.getElementById(id2).innerHTML = "2";
+        } else {
+            document.getElementById(id2).innerHTML = "4";
+        }
+
+        let fill = true;
+        for(let i = min;i<=max;i++) {
+            for (let j = min; j <= max; j++) {
+                let id = i + "" + j;
+                if (document.getElementById(id).innerHTML == "") { //nếu tại vị trí là rỗng
+                    fill = false;
+                    break;
+                }
+            }
+        }
+        document.getElementById("score").innerHTML = score; //in điểm
+        if (fill) {
+            checkGameOver()
+        }
+    }
     let score = 0;
     document.getElementById("score").innerHTML = score;
     function up() {
@@ -228,39 +272,7 @@ function start() {
 
 
 //update
-    function update() {
-        //them so ngau nhien
-        let ids = [];
-        for(let i = min;i<=max;i++) {
-            for (let j = min;j<=max;j++) {
-                let id = i+""+j; //id 0 0 ->3 3
-                if (document.getElementById(id).innerHTML =="") { //nếu tại vị trí là rỗng
-                    ids.push(id); //nhưng id hiện rỗng lên mảng ids
-                }
-            }
-        }
-        let id = ids[Math.floor(Math.random()*ids.length)];// vị trí xuất hiện tại nhwungx vị trí rỗng
-        if (Math.random()<0.8) { // tạo số ngẫu nhiên 1-4
-            document.getElementById(id).innerHTML = "2";
-        } else {
-            document.getElementById(id).innerHTML = "4";
-        }
 
-        let fill = true;
-        for(let i = min;i<=max;i++) {
-            for (let j = min; j <= max; j++) {
-                let id = i + "" + j;
-                if (document.getElementById(id).innerHTML == "") { //nếu tại vị trí là rỗng
-                    fill = false;
-                    break;
-                }
-            }
-        }
-        document.getElementById("score").innerHTML = score; //in điểm
-        if (fill) {
-            checkGameOver()
-        }
-    }
 
 // function loss() {
 //     let isOver = true;
@@ -292,13 +304,13 @@ function start() {
 //     return false;
 // }
     function checkGameOver() {
-        let isOver = true;
+        let loss = true;
         for(let j=min;j<=max;j++) {
             for(let i=min;i<=(max-1);i++) { //theo chieu ngang
                 let val = parseInt(document.getElementById(i+""+j).innerHTML);
                 let nVal = parseInt(document.getElementById((i+1)+""+j).innerHTML);
                 if(val == nVal) {
-                    isOver = false;
+                    loss = false;
                     break;
                 }
             }
@@ -308,12 +320,12 @@ function start() {
                 let val = parseInt(document.getElementById(j+""+i).innerHTML);
                 let nVal = parseInt(document.getElementById(j+""+(i+1)).innerHTML);
                 if(val == nVal) {
-                    isOver = false;
+                    loss = false;
                     break;
                 }
             }
         }
-        if(isOver) {
+        if(loss) {
             alert(tenplayer + " đã đạt được số điểm là: " + score )
         }
     }
