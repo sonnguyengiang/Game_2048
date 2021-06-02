@@ -3,11 +3,9 @@ let size = 4;
 let min = 0;
 let max = size - 1;
 let excludeIds = [];
-const music = new Audio() ;
-music.src = "audioo/music1.mp3"
 //phần game
 function start() {
-    music.play();
+
   let broad = '<table border = "1">';
     for (let row = 0; row < size; row++) {
         broad +='<tr>';
@@ -321,15 +319,6 @@ function checkGameOver() {
         }
     }
     if(isOver) {
-        class Player {
-            constructor(name) {
-                this.name = name
-            }
-            gameOver() {
-                return this.name + " Đạt được số điểm: " + score
-            }
-        }
-        let ten = prompt("nhập tên")
         let plyer = new Player(ten)
         alert(plyer.gameOver());
     }
