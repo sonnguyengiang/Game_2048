@@ -7,7 +7,7 @@ let excludeIds = [];
 function start() {
   let tenplayer = prompt("nhập tên người chơi")
   let broad = '<table border = "1">';
-    for (let row = 0; row < size; row++) {
+  for (let row = 0; row < size; row++) {
         broad +='<tr>';
         for (let col = 0; col < size; col++) {
             let id = row + "" + col;
@@ -19,7 +19,8 @@ function start() {
     document.getElementById("canvas").innerHTML = broad;
 // lấy vị trí từ hàm getIp()
     let id1 = getId();
-    let id2 = getId();
+     let id2 = getId();
+    //tạo id ngẫu nhiên 00-33(i cột; j dòng)
     function getId() {
         let i = Math.floor(Math.random()*(3)+0);
         let j = Math.floor(Math.random()*(3)+0);
@@ -30,10 +31,10 @@ function start() {
     document.getElementById(id1).innerHTML="2";
     document.getElementById(id2).innerHTML="2";
     //điểm số
-    score = 0;
+    let score = 0;
     document.getElementById("score").innerHTML = score;
     function up() {
-        isMove = false; //th sai
+        let isMove = false; //th sai
         exeludeIds = [];
         for (let j = min; j <= max; j++) {
             for (let i = min; i <= max; i++) {
@@ -65,7 +66,7 @@ function start() {
                     // }
                     if (val == nVal) {
                         if (exeludeIds.indexOf(nId) == -1) {
-                            exeludeIds.push(nId);//tai len id cua o
+                            exeludeIds.push(nId);
                             document.getElementById(nId).innerHTML = (val + nVal);//cong hai gia tri
                             document.getElementById((k+1)+""+j).innerHTML = "";//xoa gtri trc khi da cong hai so
                             isMove = true;
@@ -261,7 +262,7 @@ function start() {
         }
     }
 
-// function checkGameOver() {
+// function loss() {
 //     let isOver = true;
 //     for (let i = min; i <= max; i++) {
 //         for (let j = min; j <= max; j ++) {
@@ -337,7 +338,7 @@ function start() {
     };
 }
 
-//tạo id ngẫu nhiên 00-33(i cột; j dòng)
 
-// den phan di chuyen
+
+
 
