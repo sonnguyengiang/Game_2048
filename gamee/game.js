@@ -25,8 +25,8 @@ function start() {
         return i+""+j;
     }
     function getId2() {
-        let i = Math.floor(Math.random()*(4)+0);
-        let j = Math.floor(Math.random()*(4)+0);
+        let i = Math.floor(Math.random()*(3)+0);
+        let j = Math.floor(Math.random()*(3)+0);
         return i+""+j;
     }
     // lấy vị trí từ hàm getIp()
