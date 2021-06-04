@@ -31,8 +31,8 @@ function start() {
     document.getElementById("canvas").innerHTML = broad;
     let id1 = getId();
     let id2 = getId();
-    document.getElementById(id1).innerHTML="1024";
-    document.getElementById(id2).innerHTML="1024";
+    document.getElementById(id1).innerHTML="2";
+    document.getElementById(id2).innerHTML="2";
     score = 0;
     document.getElementById("score").innerHTML = score;
 function getId() {
